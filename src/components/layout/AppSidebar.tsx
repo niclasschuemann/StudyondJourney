@@ -67,12 +67,11 @@ export function AppSidebar() {
   return (
     <aside className="hidden w-64 flex-col border-r border-border bg-card lg:flex">
       {/* Logo */}
-      <div className="flex h-16 items-center gap-2.5 border-b border-border px-5">
-        <img src="/studyond.svg" alt="Studyond" className="h-7 w-7" />
-        <div className="flex items-baseline gap-1.5 flex-wrap">
-          <span className="ds-title-cards text-foreground">studyond</span>
-          <span className="text-primary italic font-serif leading-none opacity-80" style={{ transform: 'translateY(-1px)' }}>Journey</span>
-        </div>
+      <div className="flex h-16 items-center border-b border-border px-5 gap-2">
+        <img src="/studyond.svg" alt="Studyond" className="h-7 w-auto" />
+        <span className="text-xl italic text-primary/90 font-medium translate-y-[1px]">
+          Journey
+        </span>
       </div>
 
       {/* Role switcher */}
