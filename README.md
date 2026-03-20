@@ -32,34 +32,32 @@ We built an end-to-end journey tracker that addresses these through:
 
 ## 🛠 Technical Documentation & Design Decisions
 
-### The Tech Stack
-- **Frontend**: [React 19](https://react.dev/) with [Vite 6](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) (using the Oxide engine and OKLCH colors)
-- **State Management**: [Zustand 5](https://github.com/pmndrs/zustand) for reactive global state
-- **Routing**: [React Router 7](https://reactrouter.com/)
-- **Animations**: [Framer Motion 11](https://www.framer.com/motion/)
-- **Data Persistence**: In-memory store with **Zustand** and a robust JSON-based mock layer representing **ETH Zurich** and **University of St. Gallen**.
+### 🏗 Hybrid Full-Stack Architecture
+The platform has evolved into a robust full-stack application:
+- **Core**: [React 19](https://react.dev/) with [Vite 6](https://vitejs.dev/) for the interactive frontend.
+- **Backend Proxy**: A production-ready [Node.js/Express](https://expressjs.com/) server (`server.js`) that handles intelligent API proxying, security headers, and static asset serving.
+- **AI Intelligence**: Powered by **Google Gemini 2.5 Flash** (`@google/genai`) for real-time academic support.
 
-### Key Design Decisions
-1. **Adaptive Role Architecture**: A seamless **Instant Role Switcher** allows toggling between Student and Supervisor perspectives for immediate verification.
-2. **Context-Aware UI**: The sidebar, navigation, and Ona's suggestions morph dynamically based on the current thesis state.
-3. **Internal Notification Engine**: A custom system for tracking system-level nudges, milestone completions, and meeting requests.
-4. **Modern Aesthetics**: A premium design system using **OKLCH-based color tokens** and **Backdrop Blur** accents for a high-end SaaS feel.
-5. **Standardized Logistics**: Built around a core **180-day (6-month)** thesis duration with automated deadline calculation.
+---
 
-### 📖 Reference Information (Knowledge Base)
-To ensure academic consistency, the platform includes a supervisor-managed **Knowledge Base**. This system grounds the AI assistant's responses and provides students with a single source of truth for:
-- **Requirements**: Formalities like **APA 7th Edition** citation, formatting rules, and mandatory deliverables.
-- **Guidelines**: Logic for structuring literature reviews, methodology design, and meeting etiquette.
-- **Templates**: Structured **Expose Templates** and timeline samples.
-- **FAQ**: Standard grading criteria and common mistakes to avoid.
-- **Resources**: Topic-specific data links (e.g., Nestle sales data, ABB prototype requirements).
+### 🧠 Ona AI: The Smart Copilot
+Ona is now backed by a live Large Language Model (LLM), enabling:
+1. **Automated Supervisor Interceptor**: A sophisticated logic layer where Ona evaluates student questions in real-time. If an answer exists in the Knowledge Base (formatting, rules, deadlines), Ona provides it immediately, potentially intercepting the message to save supervisor time.
+2. **Contextual Grounding**: Responses are strictly grounded in the supervisor's Knowledge Base to ensure academic rigor.
+3. **Proactive Health Checks**: Automated monitoring of thesis progress to identify and nudge students when they hit plateaus.
+
+---
+
+### 🛡 Security & Reliability
+Designed for high-quality academic data management:
+- **Helmet.js**: Implements essential security headers (CSP, XSS protection).
+- **Express-Rate-Limit**: Protects LLM/API endpoints from abuse and brute-force attempts.
+- **Dynamic Threading**: Maintains state-aware chat histories for seamless student-AI interactions.
 
 ---
 
 ### 🎨 Design Guideline (Studyond System)
 The application follows a strict, premium design system to ensure a cohesive and high-end academic experience:
-
 - **Typography**: Uses **Avenir Next** as the primary typeface for its modern, clean legibility.
 - **Type Scale**: A standardized scale ranging from `ds-caption` (12px) for metadata to `ds-title-xl` (36px) for headers.
 - **Layout Patterns**: 
@@ -70,27 +68,47 @@ The application follows a strict, premium design system to ensure a cohesive and
 
 ---
 
+## ⚙️ Setting Up
+
+### Environment Variables
+1. Create a `.env` file in the root directory (refer to `.env.example`).
+2. Obtain a **Google Gemini API Key** from [Google AI Studio](https://aistudio.google.com/).
+3. Add your key:
+   ```env
+   GEMINI_API_KEY=your_actual_key_here
+   ```
+
+### Local Development
+```bash
+# Install dependencies
+npm install
+
+# Run Vite dev server (frontend only with proxy)
+npm run dev
+
+# Run Production-ready full-stack server
+npm start
+```
+
+---
+
 ## 🚀 Deployment Guide (Railway)
 
 We've chosen **Railway** for its superior DX and reliability. **Note: We explicitly do not use Vercel for this project.**
 
-### Prerequisites
-- A [Railway](https://railway.app/) account and a linked GitHub repository.
-
 ### Step-by-Step Deployment
 1. **Create Project**: `+ New Project` > `Deploy from GitHub repo`.
-2. **Configure Build Settings**:
-   - **Build Command**: `npm run build` (runs `tsc -b && vite build`)
-   - **Output Directory**: `dist`
+2. **Configure Environment**: Add `GEMINI_API_KEY` to the project variables in Railway.
+3. **Configure Build Settings**:
+   - **Start Command**: `npm start` (Railway will automatically detect `server.js`)
+   - **Build Command**: `npm run build`
    - **Install Command**: `npm install`
-3. **Add Custom Domain**: Under the `Settings` tab, click `Generate Domain`.
+4. **Network**: Ensure the port is set to `8080` (or let Railway use the default `PORT` variable).
 
 ---
 
 ## 👥 The Team
-
 Created at **Start Hack 2026** for the **Studyond Challenge**.
-
 - **Niclas** (Developer) & Team
 - Special thanks to the **Studyond** mentors for the challenge insights.
 
