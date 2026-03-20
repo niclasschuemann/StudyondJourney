@@ -60,7 +60,7 @@ export function TopicsPage() {
           <div className="w-20 h-20 rounded-3xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 className="w-10 h-10 text-primary" />
           </div>
-          <h2 className="ds-title-lg text-foreground font-bold mb-3">Topic Locked In</h2>
+          <h2 className="ds-title-lg text-foreground mb-3">Topic Locked In</h2>
           <p className="ds-body text-muted-foreground max-w-sm mx-auto">
             You have already registered your thesis. Keep focusing on your journey and upcoming milestones!
           </p>
@@ -78,9 +78,9 @@ export function TopicsPage() {
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary mx-auto mb-6">
               <Send className="h-8 w-8" />
             </div>
-            <h2 className="ds-title-md text-foreground font-bold mb-2">Application Sent</h2>
+            <h2 className="ds-title-md text-foreground mb-2">Application Sent</h2>
             {pendingTopic && (
-              <p className="ds-body text-foreground mb-1 font-semibold text-lg">{pendingTopic.title}</p>
+              <p className="ds-body text-foreground mb-1">{pendingTopic.title}</p>
             )}
             <p className="ds-caption text-muted-foreground mb-8">
               Your supervisor is reviewing your candidacy. We'll notify you soon!
@@ -116,7 +116,7 @@ export function TopicsPage() {
       <div className="scroll-area-content w-full max-w-6xl px-4 pt-8 pb-16">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="ds-title-lg text-foreground font-bold leading-tight">Match with your perfect Thesis Topic</h1>
+          <h1 className="ds-title-lg text-foreground leading-tight">Match with your perfect Thesis Topic</h1>
           <p className="mt-1 ds-body text-muted-foreground">
             Browse through {typedTopics.length} exciting topics from our industry and university partners.
           </p>
@@ -130,13 +130,13 @@ export function TopicsPage() {
                 <CheckCircle2 className="h-5 w-5 text-white" />
               </div>
               <div>
-                <span className="ds-label text-foreground font-bold block leading-tight">Topic Assigned</span>
+                <span className="ds-label text-foreground block leading-tight">Topic Assigned</span>
                 <span className="ds-caption text-muted-foreground">{typedTopics.find((t) => t.id === selectedTopicId)?.title}</span>
               </div>
             </div>
             <button
               onClick={clearTopic}
-              className="px-5 py-2 rounded-xl border border-border bg-background text-muted-foreground hover:text-foreground ds-caption font-bold transition-all shadow-sm active:scale-95"
+              className="px-5 py-2 rounded-xl border border-border bg-background text-muted-foreground hover:text-foreground ds-caption transition-all shadow-sm active:scale-95"
             >
               Change Topic
             </button>
@@ -197,22 +197,22 @@ export function TopicsPage() {
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-1.5">
-                    <span className="ds-badge px-3 py-1 rounded-lg bg-secondary/80 text-muted-foreground font-bold flex items-center gap-1.5 text-[10px] uppercase tracking-wider">
+                    <span className="ds-badge px-3 py-1 rounded-lg bg-secondary/80 text-muted-foreground flex items-center gap-1.5 uppercase tracking-wider">
                       {company ? <Briefcase className="h-3 w-3" /> : <GraduationCap className="h-3 w-3" />}
                       {company || "University"}
                     </span>
                   </div>
-                  <span className={`ds-badge px-3 py-1 rounded-full font-bold text-[11px] ${
+                  <span className={`ds-badge px-3 py-1 rounded-full ${
                     matchScore >= 85 ? "bg-primary text-primary-foreground shadow-sm" : "bg-black/5 text-muted-foreground"
                   }`}>
                     {matchScore}% Match
                   </span>
                 </div>
                 
-                <h3 className="ds-label text-foreground mb-2 line-clamp-2 leading-tight font-bold text-lg group-hover:text-primary transition-colors">
+                <h3 className="ds-label text-foreground mb-2 line-clamp-2 leading-tight group-hover:text-primary transition-colors">
                   {topic.title}
                 </h3>
-                <p className="ds-caption text-muted-foreground line-clamp-3 mb-6 leading-relaxed text-sm">{topic.description}</p>
+                <p className="ds-caption text-muted-foreground line-clamp-3 mb-6 leading-relaxed">{topic.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {topic.degrees.slice(0, 1).map((d: string) => (

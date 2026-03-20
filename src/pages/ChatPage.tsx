@@ -122,10 +122,10 @@ export function ChatPage() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    // Run health check on mount
-    checkProgressHealth();
-  }, []);
+  // Disabling automatic health check as per user request
+  // useEffect(() => {
+  //   checkProgressHealth();
+  // }, []);
 
   // Handle prefilled query from Journey Ona quicklinks
   const prefillProcessed = useRef(false);
@@ -429,7 +429,28 @@ export function ChatPage() {
                         Send to supervisor anyway
                       </button>
                       <button
-                        onClick={() => setInterceptedMessage(null)}
+                        onClick={() => {
+                          // Add both the student's question and Ona's answer to the store
+                          addSupervisorMessage(interceptedMessage.studentText, "student");
+                          
+                          // We manually add Ona's response as a 'supervisor' message (acting as an assistant) 
+                          // to ensure it persists in the supervisor chat log
+                          const assistantMsg: SupervisorMessage = {
+                            id: `ona-${Date.now()}`,
+                            senderId: "ona-assistant",
+                            senderRole: "supervisor", // Using supervisor role so it shows up on the left
+                            text: `[Ona AI Answer]: ${interceptedMessage.onaResponse}`,
+                            timestamp: Date.now() + 1
+                          };
+                          
+                          // We need a way to add this to the store. 
+                          // Currently addSupervisorMessage only takes (text, role). 
+                          // I'll use addSupervisorMessage with the prefix for now, 
+                          // but I'll make sure it's clear it's from Ona.
+                          addSupervisorMessage(`Ona: ${interceptedMessage.onaResponse}`, "supervisor");
+                          
+                          setInterceptedMessage(null);
+                        }}
                         className="rounded-lg bg-ai px-4 py-2 ds-label text-white hover:opacity-90 transition-opacity"
                       >
                         Accept Answer

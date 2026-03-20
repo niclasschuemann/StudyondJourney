@@ -154,7 +154,7 @@ export function DashboardPage() {
             <div className="p-6">
               <div className="flex items-center gap-2 mb-1">
                 <Sparkles className="h-4 w-4 text-ai" />
-                <span className="ds-caption text-ai font-semibold">Question {quizStep + 1} of 3</span>
+                <span className="ds-label text-ai">Question {quizStep + 1} of 3</span>
               </div>
 
               <h3 className="ds-title-cards text-foreground mb-4">{quizQuestions[quizStep].prompt}</h3>
@@ -311,7 +311,7 @@ export function DashboardPage() {
                 )}
                 <Link
                   to="/journey"
-                  className="inline-flex items-center gap-2 rounded-xl bg-primary text-primary-foreground px-5 py-2.5 ds-label transition-all duration-200 hover:opacity-90 animate-pulse"
+                  className="inline-flex items-center gap-2 rounded-xl bg-primary text-primary-foreground px-5 py-2.5 ds-label transition-all duration-200 hover:opacity-90 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
                 >
                   Start your journey <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -328,7 +328,7 @@ export function DashboardPage() {
                 <Send className="h-6 w-6" />
               </div>
               <div className="flex-1">
-                <p className="ds-caption text-primary font-semibold mb-0.5">Application sent</p>
+                <p className="ds-label text-primary mb-0.5">Application sent</p>
                 <h3 className="ds-title-cards text-foreground">{selectedTopic.title}</h3>
                 {selectedTopicCompany && (
                   <p className="ds-small text-muted-foreground mt-0.5 flex items-center gap-1.5">

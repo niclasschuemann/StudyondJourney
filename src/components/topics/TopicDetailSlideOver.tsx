@@ -38,7 +38,7 @@ export function TopicDetailSlideOver({ topic, onClose }: TopicDetailSlideOverPro
       <div className="relative z-10 w-full max-w-lg bg-background border-l border-border shadow-2xl overflow-y-auto">
         <div className="p-6">
           <div className="flex items-center justify-between mb-4">
-            <span className="ds-caption text-muted-foreground uppercase tracking-wider font-semibold">Topic details</span>
+            <span className="ds-label text-muted-foreground uppercase tracking-wider">Topic details</span>
             <button onClick={handleClose} className="rounded-lg p-1 text-muted-foreground hover:bg-secondary hover:text-foreground transition-all duration-150">
               <X className="h-5 w-5" />
             </button>
@@ -52,7 +52,7 @@ export function TopicDetailSlideOver({ topic, onClose }: TopicDetailSlideOverPro
                 <Briefcase className="h-3.5 w-3.5" />{getCompanyName(topic.companyId)}
               </span>
             )}
-            <span className={`ds-badge px-2.5 py-1 rounded-full font-bold ${
+            <span className={`ds-badge px-2.5 py-1 rounded-full ${
               getMatchScore(topic) >= 85 ? "bg-primary text-primary-foreground" : "bg-secondary text-foreground"
             }`}>
               {getMatchScore(topic)}% match
@@ -113,7 +113,7 @@ export function TopicDetailSlideOver({ topic, onClose }: TopicDetailSlideOverPro
             {isSelected ? (
               <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/30 flex flex-col gap-4">
                 <div className="flex items-center gap-2 text-green-600">
-                  <span className="ds-label font-bold">Application successfully sent!</span>
+                  <span className="ds-label">Application successfully sent!</span>
                 </div>
                 <div className="flex gap-3">
                   <button
@@ -132,7 +132,7 @@ export function TopicDetailSlideOver({ topic, onClose }: TopicDetailSlideOverPro
               </div>
             ) : showContactForm ? (
               <div className="rounded-xl border border-primary/20 p-5 bg-primary/5 space-y-4 animate-in fade-in slide-in-from-bottom-2 duration-300">
-                <h3 className="ds-label text-foreground font-bold">Personalize your application</h3>
+                <h3 className="ds-label text-foreground">Personalize your application</h3>
                 <p className="ds-caption text-muted-foreground leading-relaxed">
                   Supervisors receive many applications. A personalized message increases your chance of acceptance by 60%.
                 </p>
@@ -149,7 +149,7 @@ export function TopicDetailSlideOver({ topic, onClose }: TopicDetailSlideOverPro
                     }, 1200);
                   }}
                   disabled={aiWriting}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-primary/30 bg-white text-primary ds-label font-bold hover:bg-primary/5 transition-all duration-200 disabled:opacity-50 shadow-sm"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-primary/30 bg-white text-primary ds-label hover:bg-primary/5 transition-all duration-200 disabled:opacity-50 shadow-sm"
                 >
                   {aiWriting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Wand2 className="h-4 w-4" />}
                   {aiWriting ? "Ona is writing..." : "Draft with Ona AI"}
@@ -177,7 +177,7 @@ export function TopicDetailSlideOver({ topic, onClose }: TopicDetailSlideOverPro
                       setShowContactForm(false);
                     }}
                     disabled={contactMessage.trim().length === 0}
-                    className="flex-1 rounded-xl bg-primary text-primary-foreground px-4 py-2.5 ds-label font-bold transition-all duration-150 hover:opacity-90 disabled:opacity-30 shadow-md flex items-center justify-center gap-2"
+                    className="flex-1 rounded-xl bg-primary text-primary-foreground px-4 py-2.5 ds-label transition-all duration-150 hover:opacity-90 disabled:opacity-30 shadow-md flex items-center justify-center gap-2"
                   >
                     <Send className="h-4 w-4" /> Send Application
                   </button>
@@ -186,7 +186,7 @@ export function TopicDetailSlideOver({ topic, onClose }: TopicDetailSlideOverPro
             ) : (
               <button
                 onClick={() => setShowContactForm(true)}
-                className="w-full rounded-xl bg-primary text-primary-foreground px-6 py-3.5 ds-label font-bold transition-all duration-200 hover:opacity-90 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
+                className="w-full rounded-xl bg-primary text-primary-foreground px-6 py-3.5 ds-label transition-all duration-200 hover:opacity-90 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
               >
                 Apply & Contact Supervisor
               </button>
