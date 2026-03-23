@@ -26,7 +26,7 @@ We built an end-to-end journey tracker that addresses these through:
 - **Smart Discovery**: Filter topics by **Field** and **Source** (Industry/Company vs. University).
 - **10-Stage Lifecycle**: A visual timeline spanning `exploring` → `application_pending` → `registered` → `planning` → `executing` → `writing` → `submitted` → `defense_prep` → `graded`.
 - **Proactive AI (Ona)**: An integrated copilot providing **contextual prompts**, **health checks**, and **proactive nudges** if progress plateaus.
-- **Unified Supervisor Dashboard**: A portal for **Prof. Dr. Sibylle Hechberger** and colleagues to manage approvals, track health scores, and maintain a **Dual-Scope Knowledge Base** (Global vs. Topic-specific).
+- **Unified Supervisor Dashboard**: A portal for supervisors to manage approvals, track health scores, and maintain a **Dual-Scope Knowledge Base** (Global vs. Topic-specific).
 
 ---
 
@@ -35,7 +35,7 @@ We built an end-to-end journey tracker that addresses these through:
 ### 🏗 Hybrid Full-Stack Architecture
 The platform has evolved into a robust full-stack application:
 - **Core**: [React 19](https://react.dev/) with [Vite 6](https://vitejs.dev/) for the interactive frontend.
-- **Backend Proxy**: A production-ready [Node.js/Express](https://expressjs.com/) server (`server.js`) that handles intelligent API proxying, security headers, and static asset serving.
+- **Backend Proxy**: A [Node.js/Express](https://expressjs.com/) server (`server.js`) that handles intelligent API proxying, security headers, and static asset serving.
 - **AI Intelligence**: Powered by **Google Gemini 2.5 Flash** (`@google/genai`) for real-time academic support.
 
 ---
@@ -94,7 +94,7 @@ npm start
 
 ## 🚀 Deployment Guide (Railway)
 
-We've chosen **Railway** for its superior DX and reliability. **Note: We explicitly do not use Vercel for this project.**
+We've chosen **Railway** for its superior DX and reliability.
 
 ### Step-by-Step Deployment
 1. **Create Project**: `+ New Project` > `Deploy from GitHub repo`.
@@ -109,8 +109,10 @@ We've chosen **Railway** for its superior DX and reliability. **Note: We explici
 
 ## 👥 The Team
 Created at **Start Hack 2026** for the **Studyond Challenge**.
-- **Niclas** (Developer) & Team
-- Special thanks to the **Studyond** mentors for the challenge insights.
+
+![IMG_20260323_112027](https://github.com/user-attachments/assets/828ac2ea-76aa-4e3e-a06d-c280f9ba427c)
+
+Special thanks to the **Studyond** mentors for the challenge insights.
 
 ---
 
